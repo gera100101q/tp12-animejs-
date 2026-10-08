@@ -1,0 +1,233 @@
+/* =========================================================
+   TP12 — Dando vida al código con Anime.js
+   Mismo diseño "galería" de los TPs anteriores.
+   Acá solo se define la apariencia y el estado inicial;
+   las animaciones las maneja Anime.js.
+   ========================================================= */
+
+:root {
+  --papel: #f6f5f1;
+  --panel: #efede6;
+  --tinta: #1b1a18;
+  --tinta-suave: #6f6c65;
+  --linea: #d9d6cc;
+  --acento: #6e2a35;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background-color: var(--papel);
+  color: var(--tinta);
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 300;
+  line-height: 1.65;
+  overflow-x: hidden;
+}
+
+h1, h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 500;
+  margin: 0;
+}
+
+h2 { font-size: 1.8rem; }
+
+p {
+  color: var(--tinta-suave);
+  margin: 0 0 1em;
+}
+
+.contenedor {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 0 28px;
+}
+
+.pretitulo {
+  display: block;
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--acento);
+  margin-bottom: 14px;
+}
+
+/* ---------- Hero ---------- */
+
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid var(--linea);
+  overflow: hidden;
+}
+
+.contenido-hero {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+}
+
+.hero h1 {
+  font-size: clamp(2.8rem, 9vw, 6rem);
+  font-weight: 400;
+  line-height: 1.02;
+  max-width: 11ch;
+  margin-bottom: 28px;
+}
+
+/* Cada palabra se mantiene junta; cada letra la anima Anime.js */
+.palabra {
+  display: inline-block;
+  white-space: nowrap;
+  margin-right: 0.22em;
+}
+
+.letra {
+  display: inline-block;
+  opacity: 0; /* estado inicial */
+}
+
+.pretitulo,
+.texto-hero,
+.acciones-hero {
+  opacity: 0; /* estado inicial: la timeline los hace aparecer */
+}
+
+#arte .pretitulo {
+  opacity: 1; /* en la sección de abajo no se anima */
+}
+
+.texto-hero {
+  max-width: 46ch;
+  margin-bottom: 32px;
+}
+
+.acciones-hero {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+/* ---------- Figuras ---------- */
+
+.figura {
+  position: absolute;
+  opacity: 0; /* estado inicial */
+  pointer-events: none;
+}
+
+.circulo {
+  width: 150px;
+  height: 150px;
+  border: 1px solid var(--acento);
+  border-radius: 50%;
+  left: 68%;
+  top: 16%;
+}
+
+.cuadrado {
+  width: 100px;
+  height: 100px;
+  border: 1px solid var(--tinta);
+  left: 80%;
+  top: 55%;
+}
+
+.rombo {
+  width: 70px;
+  height: 70px;
+  border: 1px solid var(--acento);
+  left: 60%;
+  top: 70%;
+}
+
+/* ---------- Botones ---------- */
+
+.boton {
+  display: inline-block;
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 500;
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 13px 26px;
+  cursor: pointer;
+}
+
+.boton-principal {
+  background-color: var(--tinta);
+  color: var(--papel);
+  border: 1px solid var(--tinta);
+}
+
+.boton-principal:hover {
+  background-color: var(--acento);
+  border-color: var(--acento);
+}
+
+.boton-secundario {
+  background-color: transparent;
+  color: var(--tinta-suave);
+  border: 1px solid var(--linea);
+}
+
+.boton-secundario:hover {
+  color: var(--tinta);
+  border-color: var(--tinta-suave);
+}
+
+/* ---------- Cuadrícula ---------- */
+
+main {
+  padding: 80px 0 72px;
+}
+
+.cuadricula {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  gap: 8px;
+  padding: 24px;
+  margin-top: 28px;
+  background-color: var(--panel);
+  border: 1px solid var(--linea);
+}
+
+.punto {
+  aspect-ratio: 1 / 1;
+  background-color: var(--tinta);
+  opacity: 0.35;
+  cursor: pointer;
+}
+
+/* ---------- Pie ---------- */
+
+.pie-sitio {
+  border-top: 1px solid var(--linea);
+  padding: 28px 0 48px;
+}
+
+.pie-sitio p {
+  margin: 0;
+  font-size: 0.76rem;
+}
+
+@media (max-width: 600px) {
+  .cuadricula {
+    gap: 4px;
+    padding: 12px;
+  }
+
+  .circulo { width: 100px; height: 100px; }
+  .cuadrado { width: 70px; height: 70px; }
+}

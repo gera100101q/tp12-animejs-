@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dando vida al código | TP12 - Anime.js</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Work+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+  <!-- HERO: se anima con una timeline de Anime.js -->
+  <header class="hero">
+
+    <!-- Figuras decorativas -->
+    <div class="figura circulo"></div>
+    <div class="figura cuadrado"></div>
+    <div class="figura rombo"></div>
+
+    <div class="contenedor contenido-hero">
+      <span class="pretitulo">TP12 — Anime.js</span>
+      <h1 id="titulo">Dando vida al código</h1>
+      <p class="texto-hero">Una portada animada con una línea de tiempo y una cuadrícula que reacciona a tus clics.</p>
+      <div class="acciones-hero">
+        <a href="#arte" class="boton boton-principal">Ver cuadrícula</a>
+        <button type="button" id="boton-repetir" class="boton boton-secundario">Repetir intro</button>
+      </div>
+    </div>
+
+  </header>
+
+  <!-- CUADRÍCULA: onda con stagger al hacer clic -->
+  <main>
+    <section id="arte">
+      <div class="contenedor">
+        <span class="pretitulo">Interacción</span>
+        <h2>Hacé clic en un cuadrado</h2>
+        <p>La onda se propaga desde el cuadrado que elijas.</p>
+
+        <div id="cuadricula" class="cuadricula"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="pie-sitio">
+    <div class="contenedor">
+      <p>TP12 — Dando vida al código con Anime.js — Laboratorio de Programación, 6° G</p>
+    </div>
+  </footer>
+
+  <!-- Librería Anime.js (descargada localmente) -->
+  <script src="js/anime.min.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>
